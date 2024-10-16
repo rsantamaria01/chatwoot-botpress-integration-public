@@ -1,5 +1,5 @@
 {
-  "name": "chatwootintegration",
+  "name": "hospitalsantamaria/chatwoot",
   "scripts": {
     "version": "bp --version",
     "login": "bp login",
