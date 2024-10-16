@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["es2022"],
+    "lib": [
+      "es2022"
+    ],
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
@@ -22,7 +24,23 @@
     "exactOptionalPropertyTypes": false,
     "resolveJsonModule": true,
     "noPropertyAccessFromIndexSignature": false,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ] // Add this line to map 'src/' to your 'src' folder
+    },
+    "types": [
+      "node"
+    ]
   },
-  "include": [".botpress/**/*", "src/**/*", "./*.ts", "./*.json"]
+  "include": [
+    ".botpress/**/*",
+    "src/**/*",
+    "./*.ts",
+    "./*.json"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
