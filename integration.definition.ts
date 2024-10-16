@@ -5,6 +5,9 @@ import z, { optional } from 'zod'; // This imports zod, a library used for build
 export default new IntegrationDefinition({
   name: name,
   version: '0.2.0',
+  icon: 'icon.svg',
+  title: 'Chatwoot',
+  description: 'Integration for Chatwoot',
   // This is where we define the configuration schema for our integration.
   configuration: {
     schema: z.object({
@@ -22,7 +25,7 @@ export default new IntegrationDefinition({
         })
       },
       output: {
-        schema: z.object({ succeeded: z.boolean() }) 
+        schema: z.object({ succeeded: z.boolean() })
       }
     },
     newConversationTicket: {
@@ -34,7 +37,7 @@ export default new IntegrationDefinition({
         })
       },
       output: {
-        schema: z.object({ succeeded: z.boolean() }) 
+        schema: z.object({ succeeded: z.boolean() })
       }
     }
   },

@@ -29,13 +29,13 @@ export function getChatwootClientUsingUsersToken(ctx: IntegrationContext) {
   });
 }
 
-export async function doSendMessageToChatwoot(ctx: IntegrationContext<botpress.configuration.Configuration>, conversation: Merge<Conversation, { tags: Partial<Record<"chatwootintegration:conversationId" | "chatwootintegration:accountId", string>>; }>, ack: (props: { tags: Partial<Record<"chatwootintegration:messageId" | "chatwootintegration:senderType", string>>; }) => Promise<void>, logger: { forBot: () => { info: (message?: any, ...optionalParams: any[]) => void; warn: (message?: any, ...optionalParams: any[]) => void; error: (message?: any, ...optionalParams: any[]) => void; debug: (message?: any, ...optionalParams: any[]) => void; }; }, payload: { content: any; }) {
+export async function doSendMessageToChatwoot(ctx: IntegrationContext<botpress.configuration.Configuration>, conversation: Merge<Conversation, { tags: Partial<Record<"hospitalsantamaria/chatwoot:conversationId" | "hospitalsantamaria/chatwoot:accountId", string>>; }>, ack: (props: { tags: Partial<Record<"hospitalsantamaria/chatwoot:messageId" | "hospitalsantamaria/chatwoot:senderType", string>>; }) => Promise<void>, logger: { forBot: () => { info: (message?: any, ...optionalParams: any[]) => void; warn: (message?: any, ...optionalParams: any[]) => void; error: (message?: any, ...optionalParams: any[]) => void; debug: (message?: any, ...optionalParams: any[]) => void; }; }, payload: { content: any; }) {
   logger.forBot().debug(`Sending message back to Chatwoot`);
   const chatwootClient = getChatwootClient(ctx);
 
   const chatwootMessage = await chatwootClient.messages.create({
-    accountId: parseInt(conversation.tags['chatwootintegration:accountId']!),
-    conversationId: parseInt(conversation.tags['chatwootintegration:conversationId']!),
+    accountId: parseInt(conversation.tags['hospitalsantamaria/chatwoot:accountId']!),
+    conversationId: parseInt(conversation.tags['hospitalsantamaria/chatwoot:conversationId']!),
     data: payload
   });
 

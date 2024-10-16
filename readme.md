@@ -54,7 +54,7 @@ pnpm run deploy
 # Initial setup
 
 1. Open private integrations in bottpress cloud (https://app.botpress.cloud/)
-2. Install "chatwootintegration" integration
+2. Install "chatwoot" integration
 3. In the settings screen configure the the variables, as described below, toggle "Enable Itegration" and clieck "Save configuration"
 
 Variables:

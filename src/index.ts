@@ -60,14 +60,15 @@ export default new botpress.Integration({
         id: input.userId
       });
 
-      const cwContactId = user?.tags["chatwootintegration:senderId"];
+      const cwContactId = user?.tags["hospitalsantamaria/chatwoot:senderId"];
 
       const chatwootClientAsUser = getChatwootClientUsingUsersToken(ctx);
 
       const cwUser = await chatwootClientAsUser.contacts.get({
         accountId: +cwAccountID!,
-        id: +cwContactId!}
-        ) as any; //cast to any, since the API's implementation is outdated
+        id: +cwContactId!
+      }
+      ) as any; //cast to any, since the API's implementation is outdated
 
       const chatwootClient = getChatwootClient(ctx); //the default client uses a botApiKey
       const cwConversation = await chatwootClient.conversations.create({
@@ -107,8 +108,8 @@ export default new botpress.Integration({
         image: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitImageToCw(
-            conversation.tags['chatwootintegration:accountId']!,
-            conversation.tags['chatwootintegration:conversationId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
             ctx,
             message.payload.imageUrl
           ));
@@ -131,8 +132,8 @@ export default new botpress.Integration({
         card: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitCardToCw(
-            conversation.tags['chatwootintegration:accountId']!,
-            conversation.tags['chatwootintegration:conversationId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
             ctx,
             message.payload
           ));
@@ -141,8 +142,8 @@ export default new botpress.Integration({
         choice: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitChoiceOptionsToCw(
-            conversation.tags['chatwootintegration:accountId']!,
-            conversation.tags['chatwootintegration:conversationId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
+            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
             ctx,
             message.payload
           ));

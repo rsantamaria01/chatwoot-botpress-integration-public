@@ -9,7 +9,7 @@ export const Consts = {
     notAgentBot: "not_agent_bot",
   },
   tags: {
-    prefix: "chatwootintegration",
+    prefix: "hospitalsantamaria/chatwoot",
     user: {
       senderId: "senderId"
     },
