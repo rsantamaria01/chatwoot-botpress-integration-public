@@ -4,7 +4,7 @@ import { getTag, Consts } from 'src/chatwoot/utils';
 
 
 
-export async function doSendInteractiveMessageToChatwoot(ack: (props: { tags: Partial<Record<"hospitalsantamaria/chatwoot:messageId" | "hospitalsantamaria/chatwoot:senderType", string>>; }) => Promise<void>, logger: { forBot: () => { info: (message?: any, ...optionalParams: any[]) => void; warn: (message?: any, ...optionalParams: any[]) => void; error: (message?: any, ...optionalParams: any[]) => void; debug: (message?: any, ...optionalParams: any[]) => void; }; }, chatwootApiClient: Promise<import("axios").AxiosResponse<any, any>>) {
+export async function doSendInteractiveMessageToChatwoot(ack: (props: { tags: Partial<Record<"chatwoot:messageId" | "chatwoot:senderType", string>>; }) => Promise<void>, logger: { forBot: () => { info: (message?: any, ...optionalParams: any[]) => void; warn: (message?: any, ...optionalParams: any[]) => void; error: (message?: any, ...optionalParams: any[]) => void; debug: (message?: any, ...optionalParams: any[]) => void; }; }, chatwootApiClient: Promise<import("axios").AxiosResponse<any, any>>) {
   logger.forBot().debug(`Sending interactive message back to Chatwoot`);
 
   const reply = await chatwootApiClient;

@@ -60,7 +60,7 @@ export default new botpress.Integration({
         id: input.userId
       });
 
-      const cwContactId = user?.tags["hospitalsantamaria/chatwoot:senderId"];
+      const cwContactId = user?.tags["chatwoot:senderId"];
 
       const chatwootClientAsUser = getChatwootClientUsingUsersToken(ctx);
 
@@ -108,8 +108,8 @@ export default new botpress.Integration({
         image: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitImageToCw(
-            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
-            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
+            conversation.tags['chatwoot:accountId']!,
+            conversation.tags['chatwoot:conversationId']!,
             ctx,
             message.payload.imageUrl
           ));
@@ -132,8 +132,8 @@ export default new botpress.Integration({
         card: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitCardToCw(
-            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
-            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
+            conversation.tags['chatwoot:accountId']!,
+            conversation.tags['chatwoot:conversationId']!,
             ctx,
             message.payload
           ));
@@ -142,8 +142,8 @@ export default new botpress.Integration({
         choice: async ({ ctx, conversation, ack, message, logger }) => {
 
           await doSendInteractiveMessageToChatwoot(ack, logger, submitChoiceOptionsToCw(
-            conversation.tags['hospitalsantamaria/chatwoot:accountId']!,
-            conversation.tags['hospitalsantamaria/chatwoot:conversationId']!,
+            conversation.tags['chatwoot:accountId']!,
+            conversation.tags['chatwoot:conversationId']!,
             ctx,
             message.payload
           ));
